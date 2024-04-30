@@ -1,0 +1,12 @@
+#From the IMDb dataset, print the title and rating of those movies which have a 
+genre starting from 'C' released in 2014 with a budget higher than 4 Crore. 
+
+
+
+SELECT I.Title,I.Rating FROM IMDB I
+INNER JOIN genre G
+ON I.Movie_id = G.Movie_id
+WHERE g.genre LIKE 'C%'
+AND I.Title LIKE '%2014%'
+AND I.Budget>40000000;
+

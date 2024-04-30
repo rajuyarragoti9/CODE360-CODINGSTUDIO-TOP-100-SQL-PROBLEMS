@@ -1,0 +1,25 @@
+#Print the title and ratings of the movies released in 2012 whose metacritic rating 
+is more than 60 and Domestic collections exceed 10 Crores. (Download the dataset from console)
+
+
+
+             title              | rating 
+--------------------------------+--------
+ Argo (2012)                    |    7.7
+ Django Unchained (2012)        |    8.4
+ Les Mis?Irables (2012)         |    7.6
+ Silver Linings Playbook (2012) |    7.8
+ Skyfall (2012)                 |    7.8
+ The Avengers (2012)            |    8.1
+ The Dark Knight Rises (2012)   |    8.4
+ Wreck-It Ralph (2012)          |    7.7
+(8 rows)
+
+
+SELECT i.Title, i.Rating
+FROM IMDB i
+INNER JOIN earning e
+ON i.Movie_id = e.Movie_id
+WHERE i.MetaCritic > 60
+  AND e.domestic > 100000000
+  AND i.Title LIKE '%(2012)'
